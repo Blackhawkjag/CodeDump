@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Add all stylesheets and references-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHCC Boarding Calender</title>
+    <link href="https://unpkg.com/tabulator-tables@5.0.7/dist/css/tabulator.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.0.7/dist/js/tabulator.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Set CSS Style For All Components-->
+    <style>
+    body, h1, h2, h3, h4, h5, h6 {font-family: "Raleway", sans-serif;}
+    .tabulator {font-size: 20px; font font-family: "Raleway", sans-serif}
+    footer {
+      text-align: center;
+      font-size: 8px;
+      padding:3px;
+      background-color: DarkSlateGrey;
+      color: white;
+    }
+    </style>
+
+<body>
+
+    <!--Navbar Header-->
+      <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" id="myNavbar">
+          <a href="#home" class="w3-bar-item w3-button w3-wide" disabled>ANIMAL HEALTH CARE CENTER BOARDING CALENDAR</a>
+    <!-- Right-sided navbar links -->
+          <div class="w3-right w3-hide-small">
+            <button id="add-row" class="w3-bar-item w3-button"><i class="fa fa-plus"></i>  ADD ROW</button>
+
+          </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+          <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+        <p stlye="padding-bottom: 1px;"
+    </div>
+
+    <!--Initialize Data Table within HTML-->
+    <div id="data-table"></div>
+
+    <script>
+    // Initialize Table Data
+    var tabledata = [
+          {name:"Gertie", location:"Beach", meds:1, di:"12/05/20", do:"12/06/20", brought:"bed, blanket"},
+          {name:"Chloe", location:"Space", meds:0, di:"12/06/20", do:"12/07/21", brought:"Nothing"},
+
+    ]
+    // Create Table with Components
+    var table = new Tabulator("#data-table", {
+      reactiveData:true,
+      data:tabledata,
+      layout:"fitcolumns",
+      height:"882px",
+      responsiveLayout:"hide",
+      tooltips:true,
+      resizableRows:true,
+      selectable:false,
+      persistence:true,
+
+      columns:[
+          {title:"Name", field:"name",width:200, editor:true, resizable:false},
+          {title:"Location", field:"location",hozAlign:"center", editor:true,resizable:false},
+          {title:"Meds?", field:"meds", width:100, hozAlign:"center", formatter:"tickCross", sorter:"boolean", editor:true,resizable:false},
+          {title:"Date In", field:"di",hozAlign:"center", sorter:"date", editor:true,resizable:false},
+          {title:"Date Out", field:"do",hozAlign:"center", sorter:"date", editor:true,resizable:false},
+          {title:"Brought", field:"brought",maxWidth:1180,width:1180, editor:true,resizable:false},
+          {title:"Delete",formatter:"buttonCross", width:100, hozAlign:"center",resizable:false, cellClick:function(e, cell){
+            cell.getRow().delete();
+          }},
+        ],
+
+
+
+    })
+
+
+    // Get Add Button Working
+    document.getElementById("add-row").addEventListener("click", function(){
+      table.addRow({},true);
+    })
+
+    </script>
+
+    <footer>
+      <p>PRODUCED BY:  LOGAN PIKE</p>
+
+
+    </footer>
+
+</body>
+
+</html>
