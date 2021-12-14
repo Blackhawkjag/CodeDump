@@ -53,8 +53,8 @@
     <script>
     // Initialize Table Data
     var tabledata = [
-          {name:"Gertie", location:"Beach", meds:1, di:"12/05/20", do:"12/06/20", brought:"bed, blanket"},
-          {name:"Chloe", location:"Space", meds:0, di:"12/06/20", do:"12/07/21", brought:"Nothing"},
+          {name:"Gertie Carrell", location:"Beach", meds:1, di:"12/05/20", do:"12/06/20", brought:"bed, blanket"},
+          {name:"Chloe Cost", location:"Space", meds:0, di:"12/06/20", do:"12/07/21", brought:"Nothing"},
 
     ]
     // Create Table with Components
@@ -75,7 +75,7 @@
           {title:"Meds?", field:"meds", width:100, hozAlign:"center", formatter:"tickCross", sorter:"boolean", editor:true,resizable:false},
           {title:"Date In", field:"di",hozAlign:"center", sorter:"date", editor:true,resizable:false},
           {title:"Date Out", field:"do",hozAlign:"center", sorter:"date", editor:true,resizable:false},
-          {title:"Brought", field:"brought",maxWidth:1180,width:1180, editor:true,resizable:false},
+          {title:"Brought", field:"brought",maxWidth:1180,width:1185, editor:true,resizable:false},
           {title:"Delete",formatter:"buttonCross", width:100, hozAlign:"center",resizable:false, cellClick:function(e, cell){
             cell.getRow().delete();
           }},
