@@ -104,10 +104,13 @@
 
     return input;
     };
+
+
+
     // Create Table with Components
     var table = new Tabulator("#data-table", {
+      ajaxURL:"dogs.php",
       reactiveData:true,
-      data:tabledata,
       layout:"fitcolumns",
       height:"1000px",
       responsiveLayout:"hide",
@@ -123,7 +126,7 @@
           {title:"Meds?", field:"meds", width:100, hozAlign:"center", formatter:"tickCross", sorter:"boolean", editor:true,resizable:false},
           {title:"Bath?", field:"bath", width:100, hozAlign:"center", formatter:"tickCross", sorter:"boolean", editor:true,resizable:false},
           {title:"Date In", field:"di",hozAlign:"center", resizable:false, sorter:"date", editor:dateEditor},
-          {title:"Date Out", field:"do",hozAlign:"center", resizable:false, sorter:"date", editor:dateEditor},
+          {title:"Date Out", field:"date_out",hozAlign:"center", resizable:false, sorter:"date", editor:dateEditor},
           {title:"Brought", field:"brought",width:200, editor:true,resizable:true},
           {title:"Delete",formatter:"buttonCross", width:100, hozAlign:"center",resizable:false, cellClick:function(e, cell){
             cell.getRow().delete();
